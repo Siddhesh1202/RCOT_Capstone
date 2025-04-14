@@ -31,10 +31,10 @@ parser.add_argument("--noise_sigma", default=50, type=int, help="gpu ids (defaul
 # parser.add_argument("--savetar", default="./results/noise/TAR/", type=str, help="savepath, Default: targets")
 # parser.add_argument("--degset", default="./datasets/Denoising/CBSD68/original/", type=str, help="degraded data")
 # parser.add_argument("--tarset", default="./datasets/Denoising/CBSD68/original/", type=str, help="target data")
-parser.add_argument("--save", default="/kaggle/working/save", type=str, help="savepath, Default: results")
+parser.add_argument("--save", default="/kaggle/working/save/", type=str, help="savepath, Default: results")
 parser.add_argument("--savetar", default="/kaggle/input/kodak24/Kodak24/original/", type=str, help="savepath, Default: targets")
-parser.add_argument("--saveres", default="/kaggle/working/savres", type=str, help="savepath, Default: residual")
-parser.add_argument("--degset", default="/kaggle/input/kodak24/Kodak24/degraded", type=str, help="degraded data")
+parser.add_argument("--saveres", default="/kaggle/working/savres/", type=str, help="savepath, Default: residual")
+parser.add_argument("--degset", default="/kaggle/input/kodak24/Kodak24/degraded/", type=str, help="degraded data")
 parser.add_argument("--tarset", default="/kaggle/working/testKODAK/", type=str, help="target data")
 
 parser.add_argument("--gpus", default="0", type=str, help="gpu ids")
@@ -118,6 +118,12 @@ with torch.no_grad():
         save_image(tar_img.data, opt.savetar+'/'+name[-1])
 
 inception_model = torchvision.models.inception_v3(pretrained=True)
+
+print("Generated images path:", opt.save)
+print("Target images path:", opt.savetar)
+print("Generated images:", os.listdir(opt.save))
+print("Target images:", os.listdir(opt.savetar))
+
 fid_value = fid_score.calculate_fid_given_paths([opt.savetar, opt.save], batch_size=50,
                                                 device='cuda', dims=2048, num_workers=0)
 print('FID value:', fid_value)
