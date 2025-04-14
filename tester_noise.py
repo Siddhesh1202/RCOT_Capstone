@@ -12,7 +12,7 @@ from pytorch_fid import fid_score
 torch.manual_seed(1850)
 parser = argparse.ArgumentParser(description="PyTorch SRResNet Eval")
 parser.add_argument("--cuda", action="store_true", help="use cuda?")
-parser.add_argument("--model", default="/kaggle/input/denoise25/pytorch/default/1/model_Denoising__95_25_1.0.pth", type=str, help="model path")
+parser.add_argument("--model", default="/kaggle/input/denoise50/pytorch/default/1/model_Denoising__95_50_1.0.pth", type=str, help="model path")
 
 
 # parser.add_argument("--save", default="./results/rain/R100Loutput/", type=str, help="savepath, Default: results")
