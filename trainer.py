@@ -95,9 +95,10 @@ def main():
     Fnet = F_net(patch_size=opt.patch_size)
     print("------Network constructed------")
     criterion = nn.MSELoss(size_average=True)
+
     if cuda:
-        Tnet = Tnet.cuda()
-        Fnet = Fnet.cuda()
+        Tnet = nn.DataParallel(Tnet).cuda()
+        Fnet = nn.DataParallel(Fnet).cuda()
 
     if opt.resume:
         if os.path.isfile(opt.resume):
@@ -368,7 +369,7 @@ def save_checkpoint(Tnet, Fnet, epoch):
     if not os.path.exists("checkpoint/"):
         os.makedirs("checkpoint/")
 
-    torch.save(state, model_out_path)
+    torch.save({'Tnet': Tnet.module, 'Fnet': Fnet.module}, 'checkpoint.pth')
 
     print("Checkpoint saved to {}".format(model_out_path))
 
