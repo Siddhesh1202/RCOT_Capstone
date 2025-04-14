@@ -113,7 +113,7 @@ with torch.no_grad():
         im_output = im_output.cpu()
         res = res.cpu()
 
-        save_image(res.data*3, opt.saveres + '/' + name[-1])
+        # save_image(res.data*3, opt.saveres + '/' + name[-1])
         save_image(im_output.data,opt.save+'/'+name[-1])
         save_image(tar_img.data, opt.savetar+'/'+name[-1])
 
