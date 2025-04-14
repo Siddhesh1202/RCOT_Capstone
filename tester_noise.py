@@ -35,7 +35,7 @@ parser.add_argument("--save", default="/kaggle/working/save/", type=str, help="s
 parser.add_argument("--savetar", default="/kaggle/input/kodak24/Kodak24/original/", type=str, help="savepath, Default: targets")
 parser.add_argument("--saveres", default="/kaggle/working/savres/", type=str, help="savepath, Default: residual")
 parser.add_argument("--degset", default="/kaggle/input/kodak24/Kodak24/degraded/", type=str, help="degraded data")
-parser.add_argument("--tarset", default="/kaggle/working/testKODAK/", type=str, help="target data")
+parser.add_argument("--tarset", default="/kaggle/input/kodak24/Kodak24/degraded/", type=str, help="target data")
 
 parser.add_argument("--gpus", default="0", type=str, help="gpu ids")
 
