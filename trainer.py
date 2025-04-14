@@ -36,7 +36,7 @@ parser.add_argument("--pairnum", default=0, type=int, help="num of paired sample
 
 parser.add_argument('--de_type', nargs='+', default=['denoise_15', 'denoise_25', 'denoise_50', 'derain', 'dehaze'],
                     help='which type of degradations is training and testing for.')
-parser.add_argument('--denoise_dir', type=str, default='data/Train/Denoise/',
+parser.add_argument('--denoise_dir', type=str, default='/kaggle/input/rcot-data/data/Train/Denoise/',
                     help='where clean images of denoising saves.')
 parser.add_argument('--derain_dir', type=str, default='data/Train/Derain/',
                     help='where training images of deraining saves.')
