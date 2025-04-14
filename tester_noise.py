@@ -7,7 +7,7 @@ from PIL import Image
 from evaluate import calculate_evaluation_floder
 import torchvision
 from torchvision.utils import save_image
-import fid_score
+from pytorch_fid import fid_score
 
 torch.manual_seed(1850)
 parser = argparse.ArgumentParser(description="PyTorch SRResNet Eval")
@@ -31,9 +31,9 @@ parser.add_argument("--noise_sigma", default=50, type=int, help="gpu ids (defaul
 # parser.add_argument("--savetar", default="./results/noise/TAR/", type=str, help="savepath, Default: targets")
 # parser.add_argument("--degset", default="./datasets/Denoising/CBSD68/original/", type=str, help="degraded data")
 # parser.add_argument("--tarset", default="./datasets/Denoising/CBSD68/original/", type=str, help="target data")
-parser.add_argument("--save", default="/kaggle/working/", type=str, help="savepath, Default: results")
-parser.add_argument("--savetar", default="/kaggle/working/", type=str, help="savepath, Default: targets")
-parser.add_argument("--saveres", default="/kaggle/working/", type=str, help="savepath, Default: residual")
+parser.add_argument("--save", default="/kaggle/working/save", type=str, help="savepath, Default: results")
+parser.add_argument("--savetar", default="/kaggle/input/kodak24/Kodak24/original/", type=str, help="savepath, Default: targets")
+parser.add_argument("--saveres", default="/kaggle/working/savres", type=str, help="savepath, Default: residual")
 parser.add_argument("--degset", default="/kaggle/input/kodak24/Kodak24/degraded", type=str, help="degraded data")
 parser.add_argument("--tarset", default="/kaggle/working/testKODAK/", type=str, help="target data")
 
